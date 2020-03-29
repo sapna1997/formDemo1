@@ -1,0 +1,62 @@
+<form [formGroup]="user">
+  <h2>Radio buttons</h2>
+
+  <input type="radio" (click)="display1()">Login Form
+  <br><br>
+
+  <div class="form-group" [hidden]="isboolean">
+    <label>First Name:</label>
+    <input type="text" class="form-control" formControlName="FirstName">
+
+    <div *ngIf="user.controls['FirstName'].hasError('required')" class="alert alert-danger">
+      Enter a First name.
+    </div>
+
+    <div *ngIf="user.controls['FirstName'].hasError('minlength')" class="alert alert-danger">
+      First Name needs to be atleast 4 characters long.
+    </div>
+
+    <div *ngIf="user.controls['FirstName'].hasError('maxlength')" class="alert alert-danger">
+      First Name cannot exceed 8 characters.
+    </div>
+
+  </div>
+  <br>
+  <div class="form-group" [hidden]="isboolean">
+    <label>Last Name:</label>
+    <input type="text" class="form-control" formControlName="LastName">
+
+    <div *ngIf="user.controls['LastName'].hasError('required')" class="alert alert-danger">
+      Enter a Last name.
+    </div>
+
+    <div *ngIf="user.controls['LastName'].hasError('minlength')" class="alert alert-danger">
+      Last Name needs to be atleast 4 characters long.
+    </div>
+
+    <div *ngIf="user.controls['LastName'].hasError('maxlength')" class="alert alert-danger">
+      Last Name cannot exceed 8 characters.
+    </div>
+  </div>
+
+  <br><br>
+
+
+  <input type="radio" (click)="display3()">One Time Password:
+  <div class="form-group" [hidden]="isboolean2">
+    <label>OTP:</label>
+    <input type="password" class="form-control-sm">
+  </div>
+  <br><br>
+
+
+  <input type="radio" (click)="display2()">Password Field:
+  <div class="form-group" [hidden]="isboolean1">
+    <label>Password:</label>
+    <input type="password" class="form-control">
+  </div>
+
+
+  <br><br>
+  <button>Submit</button>
+</form>
